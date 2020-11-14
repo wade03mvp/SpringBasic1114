@@ -65,4 +65,7 @@
         </property>
     </bean>
     
+    <bean id="c1" class="com.sb.di.CourseSet" c:name="Java">
+        
+    </bean>
 </beans>
