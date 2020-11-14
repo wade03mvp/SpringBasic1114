@@ -3,7 +3,9 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:p="http://www.springframework.org/schema/p"
        xmlns:c="http://www.springframework.org/schema/c"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
     
     <bean id="s1" class="com.sb.di.Student">
         <!-- 方法注入 -->   
@@ -40,6 +42,19 @@
           init-method="init"
           destroy-method="destroy"
           c:name="Vincent" />
+    
+    <!-- 利用 util 建立集合參照物件 -->
+    <util:set id="students">
+        <ref bean="t1" />
+        <ref bean="t3" />
+        <ref bean="t5" />
+        <ref bean="t7" />
+    </util:set>
+    
+    <bean id="t2" class="com.sb.di.Teacher">
+        <property name="name" value="Joanna" /> 
+        <property name="students" ref="students" />   
+    </bean>
     
     <!-- 參考注入 1 -->
     <bean id="s6" class="com.sb.di.Student">
