@@ -45,10 +45,10 @@
     
     <!-- 利用 util 建立集合參照物件 -->
     <util:set id="students">
-        <ref bean="t1" />
-        <ref bean="t3" />
-        <ref bean="t5" />
-        <ref bean="t7" />
+        <ref bean="s1" />
+        <ref bean="s3" />
+        <ref bean="s5" />
+        <ref bean="s7" />
     </util:set>
     
     <bean id="t2" class="com.sb.di.Teacher">
