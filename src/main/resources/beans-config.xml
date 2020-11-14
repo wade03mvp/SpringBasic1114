@@ -73,5 +73,12 @@
                 <value>SSH</value>
             </list>
         </property>
+        <property name="students">
+            <set>
+                <ref bean="s1" />
+                <ref bean="s5" />
+                <ref bean="s7" />
+            </set>
+        </property>
     </bean>
 </beans>
