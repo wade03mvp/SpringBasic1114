@@ -5,9 +5,11 @@ public class Student {
     private Integer age;
 
     public Student() {
+        System.out.println("學生建構子1");
     }
 
     public Student(String name, Integer age) {
+        System.out.println("學生建構子2");
         this.name = name;
         this.age = age;
     }

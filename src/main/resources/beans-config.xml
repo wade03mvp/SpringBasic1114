@@ -35,6 +35,11 @@
           c:age="22"
           class="com.sb.di.Student" />
     
-    <bean id="t1" class="com.sb.di.Teacher" p:name="Vincent" />
+    <bean id="t1" 
+          class="com.sb.di.Teacher" 
+          init-method="init"
+          destroy-method="destroy"
+          c:name="Vincent" />
+    
     
 </beans>
