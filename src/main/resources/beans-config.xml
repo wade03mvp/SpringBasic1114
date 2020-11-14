@@ -48,4 +48,12 @@
         <property name="teacher" ref="t1" />
     </bean>
     
+    <!-- 參考注入 2 -->
+    <bean id="s7" class="com.sb.di.Student">
+        <property name="name" value="Jane" />
+        <property name="age" value="24" />
+        <property name="teacher" ref="t1" />
+        <property name="teacher.name" value="Anita" />
+    </bean>
+    
 </beans>

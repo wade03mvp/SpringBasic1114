@@ -23,7 +23,8 @@ public class Test1 {
         System.out.println(t1);
         Student s6 = ctx.getBean("s6", Student.class);
         System.out.println(s6);
-        
+        Student s7 = ctx.getBean("s7", Student.class);
+        System.out.println(s7);
         ctx.close();
     }
 }
