@@ -41,6 +41,11 @@
           destroy-method="destroy"
           c:name="Vincent" />
     
-    
+    <!-- 參考注入 1 -->
+    <bean id="s6" class="com.sb.di.Student">
+        <property name="name" value="Bob" />
+        <property name="age" value="23" />
+        <property name="teacher" ref="t1" />
+    </bean>
     
 </beans>

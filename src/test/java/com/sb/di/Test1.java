@@ -21,6 +21,9 @@ public class Test1 {
         
         Teacher t1 = ctx.getBean("t1", Teacher.class);
         System.out.println(t1);
+        Student s6 = ctx.getBean("s6", Student.class);
+        System.out.println(s6);
+        
         ctx.close();
     }
 }
