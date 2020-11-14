@@ -9,4 +9,9 @@
         <property name="age" value="18" />
     </bean>
     
+    <bean id="s2" class="com.sb.di.Student">
+        <property name="name" value="Mary" />
+        <property name="age" value="19" />
+    </bean>
+    
 </beans>
