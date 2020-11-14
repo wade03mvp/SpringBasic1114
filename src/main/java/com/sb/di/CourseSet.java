@@ -3,11 +3,13 @@ package com.sb.di;
 // 套課
 
 import java.util.List;
+import java.util.Set;
 
 public class CourseSet {
     private String name; // 套課名
     private List<String> cls; // 課程內容, Ex:[Java, JavaWb, SSH, Android]
-
+    private Set<Student> students; // 學員
+    
     public CourseSet() {
     }
 
@@ -31,10 +33,19 @@ public class CourseSet {
         this.cls = cls;
     }
 
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
+
     @Override
     public String toString() {
-        return "CourseSet{" + "name=" + name + ", cls=" + cls + '}';
+        return "CourseSet{" + "name=" + name + ", cls=" + cls + ", students=" + students + '}';
     }
+
     
     
 }

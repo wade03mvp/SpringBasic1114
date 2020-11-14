@@ -66,6 +66,12 @@
     </bean>
     
     <bean id="c1" class="com.sb.di.CourseSet" c:name="Java">
-        
+        <property name="cls">
+            <list>
+                <value>OCPJP</value>
+                <value>OCPWCD</value>
+                <value>SSH</value>
+            </list>
+        </property>
     </bean>
 </beans>
