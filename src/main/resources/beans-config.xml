@@ -3,15 +3,23 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
-
+    
     <bean id="s1" class="com.sb.di.Student">
+        <!-- 方法注入 -->   
         <property name="name" value="John" />
         <property name="age" value="18" />
     </bean>
     
     <bean id="s2" class="com.sb.di.Student">
-        <property name="name" value="Mary" />
-        <property name="age" value="19" />
+        <!-- 建構子注入 -->   
+        <constructor-arg index="0" value="Mary" type="java.lang.String" />
+        <constructor-arg index="1" value="19" type="java.lang.Integer" />
+    </bean>
+    
+    <bean id="s3" class="com.sb.di.Student">
+        <!-- 建構子注入 -->
+        <constructor-arg value="Tom" />
+        <constructor-arg value="20" />
     </bean>
     
 </beans>
