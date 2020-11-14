@@ -1,8 +1,11 @@
 package com.sb.di;
 
+import java.util.Set;
+
 public class Teacher {
     private String name;
-
+    private Set<Student> students;
+    
     public Teacher() {
         System.out.println("老師建構子1");
     }
@@ -27,10 +30,20 @@ public class Teacher {
     public void destroy() {
         System.out.println("老師退休");
     }
-    
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
+    }
+
     @Override
     public String toString() {
-        return "Teacher{" + "name=" + name + '}';
+        return "Teacher{" + "name=" + name + ", students=" + students + '}';
     }
+    
+    
     
 }
