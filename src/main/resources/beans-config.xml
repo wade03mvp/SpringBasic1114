@@ -35,5 +35,6 @@
           c:age="22"
           class="com.sb.di.Student" />
     
+    <bean id="t1" class="com.sb.di.Teacher" p:name="Vincent" />
     
 </beans>

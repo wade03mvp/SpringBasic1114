@@ -18,6 +18,9 @@ public class Test1 {
         System.out.println(s4);
         Student s5 = ctx.getBean("s5", Student.class);
         System.out.println(s5);
+        
+        Teacher t1 = ctx.getBean("t1", Teacher.class);
+        System.out.println(t1);
         ctx.close();
     }
 }
