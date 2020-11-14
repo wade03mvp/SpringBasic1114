@@ -33,6 +33,10 @@ public class Test1 {
         
         CourseSet c1 = ctx.getBean("c1", CourseSet.class);
         System.out.println(c1);
+        
+        School school = ctx.getBean(School.class);
+        System.out.println(school);
+        
         ctx.close();
     }
 }

@@ -103,6 +103,20 @@
         </property>
     </bean>
     
+    <util:set id="teachers">
+        <ref bean="t1" />
+        <ref bean="t2" />
+    </util:set>
     
+    <util:set id="courseSets">
+        <ref bean="c1" />
+    </util:set>
+    
+    <bean id="school" class="com.sb.di.School">
+        <property name="name" value="pcschool"/>
+        <property name="students" ref="students" />
+        <property name="teachers" ref="teachers" />
+        <property name="courseSets" ref="courseSets" />
+    </bean>
     
 </beans>

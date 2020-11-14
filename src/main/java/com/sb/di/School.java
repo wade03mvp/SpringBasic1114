@@ -8,7 +8,7 @@ public class School {
     private Set<Teacher> teachers;
     private Set<Student> students;
     private List<CourseSet> courseSets;
-
+    
     public School() {
     }
 
