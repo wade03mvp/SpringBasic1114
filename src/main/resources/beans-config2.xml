@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+       xmlns:c="http://www.springframework.org/schema/c"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
         
-    <bean id="lotto" class="com.sb.di2.LottoFactory" />
+    <bean id="lotto" class="com.sb.di2.LottoFactory"></bean>
     
+    <!-- singleton, prototype -->
+    <bean id="dice" 
+          scope="prototype" 
+          class="com.sb.di2.Dice" 
+          c:amount="3">
+    </bean>
 </beans>

@@ -12,6 +12,7 @@ public class Dice {
 
     public Dice(Integer amount) {
         this.amount = amount;
+        score = 0;
         final Random r = new Random();
         IntStream.range(0, amount).forEach(i -> score += r.nextInt(6)+1);
     }

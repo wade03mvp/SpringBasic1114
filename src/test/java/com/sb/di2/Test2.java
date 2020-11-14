@@ -11,5 +11,10 @@ public class Test2 {
         System.out.println(lotto1);
         Lotto lotto2 = ctx.getBean("lotto", Lotto.class);
         System.out.println(lotto2);
+        
+        Dice dice1 = ctx.getBean("dice", Dice.class);
+        System.out.println(dice1);
+        Dice dice2 = ctx.getBean("dice", Dice.class);
+        System.out.println(dice2);
     }
 }
