@@ -17,6 +17,9 @@
     <bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
         <property name="location" value="dice.properties" />
     </bean>
+    <!-- 
+    <bean id="dice2" class="com.sb.di2.Dice" c:amount="${dice.amount}" />
+    -->
     <bean id="dice2" class="com.sb.di2.Dice">
         <constructor-arg index="0" value="${dice.amount}" />
     </bean>
