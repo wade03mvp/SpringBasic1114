@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
     
     <bean id="s1" class="com.sb.di.Student">
@@ -21,6 +22,18 @@
         <constructor-arg value="Tom" />
         <constructor-arg value="20" />
     </bean>
+    
+    <!-- 利用 p 來注入資料 -->
+    <bean id="s4" 
+          p:name="Helen"
+          p:age="21"
+          class="com.sb.di.Student" />
+    
+    <!-- 利用 c 來注入資料 -->
+    <bean id="s5" 
+          c:name="Jo"
+          c:age="22"
+          class="com.sb.di.Student" />
     
     
 </beans>
