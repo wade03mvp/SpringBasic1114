@@ -56,4 +56,13 @@
         <property name="teacher.name" value="Anita" />
     </bean>
     
+    <!-- 參考注入 3 -->
+    <bean id="s8" class="com.sb.di.Student">
+        <property name="name" value="Mark" />
+        <property name="age" value="25" />
+        <property name="teacher">
+            <bean class="com.sb.di.Teacher" c:name="Michael" />
+        </property>
+    </bean>
+    
 </beans>
