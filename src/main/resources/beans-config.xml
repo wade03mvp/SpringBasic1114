@@ -80,5 +80,11 @@
                 <ref bean="s7" />
             </set>
         </property>
+        <property name="exams">
+            <map>
+                <entry key="1z0-808" value="65" />
+                <entry key="1z0-809" value="70" />
+            </map>
+        </property>
     </bean>
 </beans>
