@@ -14,7 +14,10 @@ public class Test2 {
         
         Dice dice1 = ctx.getBean("dice", Dice.class);
         System.out.println(dice1);
-        Dice dice2 = ctx.getBean("dice", Dice.class);
+        
+        Dice dice2 = ctx.getBean("dice2", Dice.class);
         System.out.println(dice2);
+        
+        ctx.close();
     }
 }
