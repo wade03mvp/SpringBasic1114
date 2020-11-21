@@ -9,7 +9,7 @@ public class Di3Test {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("beans-config3.xml");
         UserController uc = ctx.getBean("userController", UserController.class);
         System.out.println(uc.queryAll());
-        System.out.println(uc.get("Tom"));      
+        System.out.println(uc.get("Mary"));      
         
     }
 }
