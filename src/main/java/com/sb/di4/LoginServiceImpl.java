@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public class LoginServiceImpl implements LoginService {
-    List<Map<String, String>> users;
+    private List<Map<String, String>> users;
     {
         users = new ArrayList<>();
         users.add(new HashMap<String, String>(){
@@ -21,12 +22,21 @@ public class LoginServiceImpl implements LoginService {
                 put("password", "5678");
             }
         });
-        
     }
     
     @Override
     public boolean check(String username, String password) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//        Optional<Map<String, String>> opt = users.stream()
+//                .filter(map -> map.get("username").equals(username) && 
+//                               map.get("password").equals(password))
+//                .findFirst();
+//        return opt.isPresent();
+
+        return users.stream()
+                .filter(map -> map.get("username").equals(username) && 
+                               map.get("password").equals(password))
+                .findFirst()
+                .isPresent();
     }
     
 }
