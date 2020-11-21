@@ -2,6 +2,7 @@ package com.sb.di3;
 
 import java.util.List;
 import java.util.Optional;
+import static java.util.stream.Collectors.toList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,9 @@ public class UserService {
     private UserDao userDao;
     
     public List<String> findAllUser() {
-        return userDao.queryUsers();
+        return userDao.queryUsers().stream()
+                .filter(name -> name.charAt(0) != 'M')
+                .collect(toList());
     }
     
     public String findUserByName(String name) {
