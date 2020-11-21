@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.stereotype.Repository;
 
-@Repository
+@Repository(value = "fund")
 public class FundDao implements Dao{
     private List<Map<String, String>> funds;
     {
