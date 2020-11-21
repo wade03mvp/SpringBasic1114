@@ -12,8 +12,7 @@ public class UserController {
     }
     
     public String get(String name) {
-        List<String> names = queryAll();
-        return names.stream().filter(n -> n.equals(names)).findAny().get();
+        return userService.findUserByName(name);
     }
     
 }
