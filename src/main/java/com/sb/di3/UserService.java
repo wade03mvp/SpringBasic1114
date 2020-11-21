@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 @Service
-@Scope(value = "SingleTon")
+@Scope(value = "singleton")
 public class UserService {
     @Autowired
     private UserDao userDao;
