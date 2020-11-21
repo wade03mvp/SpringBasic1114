@@ -8,5 +8,6 @@
 
     <!-- 自動掃苗 -->
     <context:component-scan base-package="com.sb.di3" />
+    <context:component-scan base-package="com.sb.di4" />
     
 </beans>
