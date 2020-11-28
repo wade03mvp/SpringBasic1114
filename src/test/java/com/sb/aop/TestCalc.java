@@ -14,7 +14,7 @@ public class TestCalc {
     public void t1() {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("aop-config.xml");
         Calc calc = ctx.getBean("calcImpl", Calc.class);
-        System.out.println(calc.add(10, 5));
-        //System.out.println(calc.div(10, 5));
+        //System.out.println(calc.add(10, 5));
+        System.out.println(calc.div(10, 0));
     }
 }
