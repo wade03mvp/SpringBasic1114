@@ -5,24 +5,24 @@ import org.springframework.stereotype.Component;
 @Component
 public class CalcImpl implements Calc {
 
+    
     @Override
-    public int add(int x, int y) {
+    public Integer add(Integer x, Integer y) {
         return x + y;
     }
 
     @Override
-    public int sub(int x, int y) {
+    public Integer sub(Integer x, Integer y) {
         return x - y;
     }
 
     @Override
-    public int mul(int x, int y) {
+    public Integer mul(Integer x, Integer y) {
         return x * y;
     }
 
     @Override
-    public int div(int x, int y) {
+    public Integer div(Integer x, Integer y) {
         return x / y;
     }
-    
 }

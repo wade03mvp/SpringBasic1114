@@ -1,8 +1,8 @@
 package com.sb.aop;
 
 public interface Calc {
-    int add(int x, int y);
-    int sub(int x, int y);
-    int mul(int x, int y);
-    int div(int x, int y);
+    Integer add(Integer x, Integer y);
+    Integer sub(Integer x, Integer y);
+    Integer mul(Integer x, Integer y);
+    Integer div(Integer x, Integer y);
 }

@@ -21,5 +21,5 @@ public class CalcImpl implements Calc {
     public int div(int x, int y) {
         return x / y;
     }
-    
+
 }
