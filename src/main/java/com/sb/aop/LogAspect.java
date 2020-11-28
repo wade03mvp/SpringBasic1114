@@ -1,5 +1,6 @@
 package com.sb.aop;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -22,7 +23,7 @@ public class LogAspect {
     //@Before(value = "execution(* com.sb.aop.*.*(..))")
     //@Before(value = "execution(* *.*(..))")
     @Before(value = "cut()")
-    public void before() {
-        System.out.println("AOP 前置通知");
+    public void before(JoinPoint joinPoint) {
+        System.out.println("AOP 前置通知 : " + joinPoint.getSignature().getName());
     }
 }
