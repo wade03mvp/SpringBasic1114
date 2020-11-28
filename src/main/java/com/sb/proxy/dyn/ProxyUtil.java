@@ -26,6 +26,7 @@ public class ProxyUtil {
                 System.out.println("參數 : " + (args!=null ? Arrays.toString(args) : ""));
                 try {
                     result = method.invoke(object, args);
+                    // 返回通知
                     System.out.println("返回通知 result = " + result);
                 } catch (Exception e) {
                     // 異常通知
