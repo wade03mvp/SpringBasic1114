@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class LogAspect {
     
     // 前置通知
-    @Before(value = "execution(public int com.sb.aop.CalcImpl.add(int, int))")
+    @Before(value = "execution(public int com.sb.aop.CalcImpl.*(int, int))")
     public void before() {
         System.out.println("AOP 前置通知");
     }
