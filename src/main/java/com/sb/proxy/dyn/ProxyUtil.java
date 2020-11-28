@@ -3,6 +3,7 @@ package com.sb.proxy.dyn;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
+import java.util.Arrays;
 
 public class ProxyUtil {
     private Object object;
@@ -22,6 +23,7 @@ public class ProxyUtil {
                 Object result = null;
                 // 前置通知
                 System.out.println("準備好紙筆來計算...");
+                System.out.println("參數 : " + (args!=null ? Arrays.toString(args) : ""));
                 result = method.invoke(object, args);
                 return result;
             }
