@@ -5,7 +5,7 @@ public class Main {
         ProxyUtil proxy = new ProxyUtil(new CalcImpl());
         Calc calc = (Calc)proxy.getProxy();
         System.out.println(calc);
-        System.out.println(calc.div(10, 0));
+        System.out.println(calc.div(10, 5));
         
     }
 }
