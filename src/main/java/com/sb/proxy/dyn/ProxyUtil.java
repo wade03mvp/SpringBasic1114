@@ -20,6 +20,8 @@ public class ProxyUtil {
             @Override
             public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
                 Object result = null;
+                // 前置通知
+                System.out.println("準備好紙筆來計算...");
                 result = method.invoke(object, args);
                 return result;
             }
