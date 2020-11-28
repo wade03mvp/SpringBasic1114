@@ -9,6 +9,8 @@ public class TestBubbleTea {
         ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("aop-config.xml");
         BubbleTea tea = ctx.getBean("bubbleTea", BubbleTea.class);
         System.out.println(tea.buy(5));
+        System.out.println(tea.buy(10));
+        System.out.println(tea.buy(3));
         
     }
 }
