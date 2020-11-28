@@ -17,6 +17,7 @@ public class ExchangeAspect {
         Object result = null;
         try {
             result = joinPoint.proceed();
+            //System.out.println(result);
             Integer newResult = (int)(Integer.parseInt(result + "") / 30);
             result = newResult;
         } catch (Throwable e) {
