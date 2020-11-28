@@ -7,8 +7,8 @@
           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
     <!-- 自動掃苗 -->
-    <context:component-scan base-package="com.sb.di3" />
-    <context:component-scan base-package="com.sb.di4" />
-    <context:component-scan base-package="com.sb.di5" />
+    <context:component-scan base-package="com.sb.ioc.di3" />
+    <context:component-scan base-package="com.sb.ioc.di4" />
+    <context:component-scan base-package="com.sb.ioc.di5" />
     
 </beans>

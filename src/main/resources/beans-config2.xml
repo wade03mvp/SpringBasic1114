@@ -4,12 +4,12 @@
        xmlns:c="http://www.springframework.org/schema/c"
         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
         
-    <bean id="lotto" class="com.sb.di2.LottoFactory"></bean>
+    <bean id="lotto" class="com.sb.ioc.di2.LottoFactory"></bean>
     
     <!-- singleton, prototype -->
     <bean id="dice" 
           scope="prototype" 
-          class="com.sb.di2.Dice" 
+          class="com.sb.ioc.di2.Dice" 
           c:amount="3">
     </bean>
     
@@ -20,7 +20,7 @@
     <!-- 
     <bean id="dice2" class="com.sb.di2.Dice" c:amount="${dice.amount}" />
     -->
-    <bean id="dice2" class="com.sb.di2.Dice">
+    <bean id="dice2" class="com.sb.ioc.di2.Dice">
         <constructor-arg index="0" value="${dice.amount}" />
     </bean>
     

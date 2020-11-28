@@ -7,19 +7,19 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
     
-    <bean id="s1" class="com.sb.di.Student">
+    <bean id="s1" class="com.sb.ioc.di.Student">
         <!-- 方法注入 -->   
         <property name="name" value="John" />
         <property name="age" value="18" />
     </bean>
     
-    <bean id="s2" class="com.sb.di.Student">
+    <bean id="s2" class="com.sb.ioc.di.Student">
         <!-- 建構子注入 -->   
         <constructor-arg index="0" value="Mary" type="java.lang.String" />
         <constructor-arg index="1" value="19" type="java.lang.Integer" />
     </bean>
     
-    <bean id="s3" class="com.sb.di.Student">
+    <bean id="s3" class="com.sb.ioc.di.Student">
         <!-- 建構子注入 -->
         <constructor-arg value="Tom" />
         <constructor-arg value="20" />
@@ -29,16 +29,16 @@
     <bean id="s4" 
           p:name="Helen"
           p:age="21"
-          class="com.sb.di.Student" />
+          class="com.sb.ioc.di.Student" />
     
     <!-- 利用 c 來注入資料 -->
     <bean id="s5" 
           c:name="Jo"
           c:age="22"
-          class="com.sb.di.Student" />
+          class="com.sb.ioc.di.Student" />
     
     <bean id="t1" 
-          class="com.sb.di.Teacher" 
+          class="com.sb.ioc.di.Teacher" 
           init-method="init"
           destroy-method="destroy"
           c:name="Vincent" />
@@ -51,20 +51,20 @@
         <ref bean="s7" />
     </util:set>
     
-    <bean id="t2" class="com.sb.di.Teacher">
+    <bean id="t2" class="com.sb.ioc.di.Teacher">
         <property name="name" value="Joanna" /> 
         <property name="students" ref="students" />   
     </bean>
     
     <!-- 參考注入 1 -->
-    <bean id="s6" class="com.sb.di.Student">
+    <bean id="s6" class="com.sb.ioc.di.Student">
         <property name="name" value="Bob" />
         <property name="age" value="23" />
         <property name="teacher" ref="t1" />
     </bean>
     
     <!-- 參考注入 2 -->
-    <bean id="s7" class="com.sb.di.Student">
+    <bean id="s7" class="com.sb.ioc.di.Student">
         <property name="name" value="Jane" />
         <property name="age" value="24" />
         <property name="teacher" ref="t1" />
@@ -72,15 +72,15 @@
     </bean>
     
     <!-- 參考注入 3 -->
-    <bean id="s8" class="com.sb.di.Student">
+    <bean id="s8" class="com.sb.ioc.di.Student">
         <property name="name" value="Mark" />
         <property name="age" value="25" />
         <property name="teacher">
-            <bean class="com.sb.di.Teacher" c:name="Michael" />
+            <bean class="com.sb.ioc.di.Teacher" c:name="Michael" />
         </property>
     </bean>
     
-    <bean id="c1" class="com.sb.di.CourseSet" c:name="Java">
+    <bean id="c1" class="com.sb.ioc.di.CourseSet" c:name="Java">
         <property name="cls">
             <list>
                 <value>OCPJP</value>
@@ -112,7 +112,7 @@
         <ref bean="c1" />
     </util:set>
     
-    <bean id="school" class="com.sb.di.School">
+    <bean id="school" class="com.sb.ioc.di.School">
         <property name="name" value="pcschool"/>
         <property name="students" ref="students" />
         <property name="teachers" ref="teachers" />
