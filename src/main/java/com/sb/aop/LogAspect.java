@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Order(1) // 放入正整數, 數字越小越先執行 (預設是 int 的最大值)
 public class LogAspect {
     // 切點(PointCut) + 公用表達式
-    @Pointcut(value = "execution(* com.sb.aop.*.*(..))")
+    @Pointcut(value = "execution(* com.sb.aop.CalcImpl.*(..))")
     public void cut(){}
     
     // 前置通知
