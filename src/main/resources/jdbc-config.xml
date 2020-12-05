@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+          
+    <!-- 掃描元件 -->
+    <context:component-scan base-package="com.jdbc.template"></context:component-scan>
+    
+    <!-- 引用外部配置 -->
+    <context:property-placeholder location="derby.properties"></context:property-placeholder>
+    
+    <!-- 建立資料源 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driver}"></property>
+        <property name="jdbcUrl" value="${jdbc.url}"></property>
+        <property name="user" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+        <property name="initialPoolSize" value="10"></property>
+    </bean>
+    
+    <!-- 建立 JdbcTemplate -->
+    
+    
+</beans>
