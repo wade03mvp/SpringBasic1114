@@ -10,7 +10,7 @@ public class BookDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     
-    public int getPrice(Integer bid) {
+    public Integer getPrice(Integer bid) {
         String sql = "select price from book where bid = ?";
         Object[] args = {bid};
         return jdbcTemplate.queryForObject(sql, args, Integer.class);
