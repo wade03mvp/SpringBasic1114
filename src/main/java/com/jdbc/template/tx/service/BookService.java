@@ -20,17 +20,19 @@ public class BookService {
     
     @Transactional(
             propagation = Propagation.REQUIRED,
-            isolation = Isolation.REPEATABLE_READ,
+            isolation = Isolation.DEFAULT,
             timeout = 3,
-            rollbackFor = {InsufficientWalletMoneyException.class, InsufficientBookStock.class}
+            rollbackFor = {InsufficientWalletMoneyException.class},
+            noRollbackFor = {InsufficientBookStock.class}
     )
     public void buyOne(Integer wid, Integer bid) throws InsufficientWalletMoneyException, InsufficientBookStock {
-        bookDao.updateStock(bid); // 修改庫存
         //int x = 10/0;
 //        try {
 //            Thread.sleep(4000);
 //        } catch (Exception e) {
 //        }
         bookDao.updateWallet(wid, bid); // 修改錢包
+        bookDao.updateStock(bid); // 修改庫存
     }
+    
 }

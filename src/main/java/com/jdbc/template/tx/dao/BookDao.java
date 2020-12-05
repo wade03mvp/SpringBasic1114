@@ -36,11 +36,12 @@ public class BookDao {
     // 修改庫存 Stock
     public void updateStock(Integer bid) throws InsufficientBookStock {
         Integer amount = getBookStock(bid);
+        String sql = "update stock set amount = amount - 1 where bid=?";
+        jdbcTemplate.update(sql, bid);
         if(amount <= 0) {
             throw new InsufficientBookStock();
         }
-        String sql = "update stock set amount = amount - 1 where bid=?";
-        jdbcTemplate.update(sql, bid);
+        
     }
     
     // 修改錢包 Wallet
