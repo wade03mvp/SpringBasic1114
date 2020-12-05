@@ -1,5 +1,6 @@
 package com.jdbc.template.tx.dao;
 
+import com.jdbc.template.tx.exception.InsufficientWalletMoneyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -31,8 +32,12 @@ public class BookDao {
     }
     
     // 修改錢包 Wallet
-    public void updateWallet(Integer wid, Integer bid) {
+    public void updateWallet(Integer wid, Integer bid) throws InsufficientWalletMoneyException {
         Integer price = getPrice(bid);
+        Integer money = getWalletMoney(wid);
+        if(money < price) {
+            throw new InsufficientWalletMoneyException();
+        }
         String sql = "update wallet set money = money - ? where wid=?";
         jdbcTemplate.update(sql, price, wid);
     }
