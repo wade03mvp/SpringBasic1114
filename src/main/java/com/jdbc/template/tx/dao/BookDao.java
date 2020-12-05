@@ -17,6 +17,13 @@ public class BookDao {
         return jdbcTemplate.queryForObject(sql, args, Integer.class);
     }
     
+    // 查詢錢包餘額
+    public Integer getWalletMoney(Integer wid) {
+        String sql = "select money from wallet where wid = ?";
+        Object[] args = {wid};
+        return jdbcTemplate.queryForObject(sql, args, Integer.class);
+    }
+    
     // 修改庫存 Stock
     public void updateStock(Integer bid) {
         String sql = "update stock set amount = amount - 1 where bid=?";

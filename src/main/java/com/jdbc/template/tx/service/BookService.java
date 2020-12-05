@@ -3,6 +3,8 @@ package com.jdbc.template.tx.service;
 import com.jdbc.template.tx.dao.BookDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
@@ -14,10 +16,18 @@ public class BookService {
         return bookDao.getPrice(bid);
     }
     
-    @Transactional
+    @Transactional(
+            propagation = Propagation.REQUIRED,
+            isolation = Isolation.REPEATABLE_READ,
+            timeout = 3
+    )
     public void buyOne(Integer wid, Integer bid) {
         bookDao.updateStock(bid); // 修改庫存
-        int x = 10/0;
+        //int x = 10/0;
+//        try {
+//            Thread.sleep(4000);
+//        } catch (Exception e) {
+//        }
         bookDao.updateWallet(wid, bid); // 修改錢包
     }
 }
