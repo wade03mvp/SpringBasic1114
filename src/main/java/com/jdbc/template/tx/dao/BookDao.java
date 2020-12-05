@@ -1,5 +1,6 @@
 package com.jdbc.template.tx.dao;
 
+import com.jdbc.template.tx.exception.InsufficientBookStock;
 import com.jdbc.template.tx.exception.InsufficientWalletMoneyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,8 +26,19 @@ public class BookDao {
         return jdbcTemplate.queryForObject(sql, args, Integer.class);
     }
     
+    // 查詢書籍庫存
+    public Integer getBookStock(Integer bid) {
+        String sql = "select amount from stock where bid = ?";
+        Object[] args = {bid};
+        return jdbcTemplate.queryForObject(sql, args, Integer.class);
+    }
+    
     // 修改庫存 Stock
-    public void updateStock(Integer bid) {
+    public void updateStock(Integer bid) throws InsufficientBookStock {
+        Integer amount = getBookStock(bid);
+        if(amount <= 0) {
+            throw new InsufficientBookStock();
+        }
         String sql = "update stock set amount = amount - 1 where bid=?";
         jdbcTemplate.update(sql, bid);
     }

@@ -1,6 +1,7 @@
 package com.jdbc.template.tx.service;
 
 import com.jdbc.template.tx.dao.BookDao;
+import com.jdbc.template.tx.exception.InsufficientBookStock;
 import com.jdbc.template.tx.exception.InsufficientWalletMoneyException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,9 +22,9 @@ public class BookService {
             propagation = Propagation.REQUIRED,
             isolation = Isolation.REPEATABLE_READ,
             timeout = 3,
-            rollbackFor = {InsufficientWalletMoneyException.class}
+            rollbackFor = {InsufficientWalletMoneyException.class, InsufficientBookStock.class}
     )
-    public void buyOne(Integer wid, Integer bid) throws InsufficientWalletMoneyException {
+    public void buyOne(Integer wid, Integer bid) throws InsufficientWalletMoneyException, InsufficientBookStock {
         bookDao.updateStock(bid); // 修改庫存
         //int x = 10/0;
 //        try {
