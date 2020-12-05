@@ -24,6 +24,7 @@ public class Query {
     public void t1() {
         getById(1);
         getById2(1);
+        getTotalRowCount();
     }
     
     // 單筆查詢 1 - 欄位手動對應
@@ -39,7 +40,8 @@ public class Query {
                 emp.setName(rs.getString("name"));
                 emp.setAge(rs.getInt("age"));
                 emp.setSex(rs.getString("sex"));
-                emp.setCt(rs.getDate("ct"));
+                //emp.setCt(rs.getDate("ct")); // 只有日期
+                emp.setCt(rs.getTimestamp("ct")); // 日期 +  時間
                 return emp;
             }
         };
@@ -55,6 +57,13 @@ public class Query {
         RowMapper<Emp> rm = new BeanPropertyRowMapper<>(Emp.class);
         Emp emp = jdbcTemplate.queryForObject(sql, args, rm);
         System.out.println(emp);
+    }
+    
+    // 查詢單筆 3 - 資料總筆數
+    private void getTotalRowCount() {
+        String sql = "select count(*) from emp";
+        Integer count = jdbcTemplate.queryForObject(sql, Integer.class);
+        System.out.println("資料總筆數: " + count);
     }
     
     @After
