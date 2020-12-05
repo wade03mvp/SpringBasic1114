@@ -6,6 +6,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -22,13 +23,14 @@ public class Query {
     @Test
     public void t1() {
         getById(1);
+        getById2(1);
     }
     
-    // 單筆查詢
+    // 單筆查詢 1 - 欄位手動對應
     private void getById(Integer id) {
         String sql = "select id, name, age, sex, ct from emp where id=?";
         Object[] args = {id};
-        // mapper 對應
+        // 手動 mapper 對應
         RowMapper<Emp> rm = new RowMapper<Emp>() {
             @Override
             public Emp mapRow(ResultSet rs, int i) throws SQLException {
@@ -41,6 +43,16 @@ public class Query {
                 return emp;
             }
         };
+        Emp emp = jdbcTemplate.queryForObject(sql, args, rm);
+        System.out.println(emp);
+    }
+    
+    // 單筆查詢 2 - 欄位自動對應
+    private void getById2(Integer id) {
+        String sql = "select id, name, age, sex, ct from emp where id=?";
+        Object[] args = {id};
+        // 自動 mapper 對應
+        RowMapper<Emp> rm = new BeanPropertyRowMapper<>(Emp.class);
         Emp emp = jdbcTemplate.queryForObject(sql, args, rm);
         System.out.println(emp);
     }
