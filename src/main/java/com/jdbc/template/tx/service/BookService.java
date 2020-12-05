@@ -22,11 +22,11 @@ public class BookService {
             propagation = Propagation.REQUIRED,
             isolation = Isolation.DEFAULT,
             timeout = 3,
-            rollbackFor = {InsufficientWalletMoneyException.class},
-            noRollbackFor = {InsufficientBookStock.class}
+            rollbackFor = {InsufficientWalletMoneyException.class, InsufficientBookStock.class},
+            noRollbackFor = {ArithmeticException.class}
     )
     public void buyOne(Integer wid, Integer bid) throws InsufficientWalletMoneyException, InsufficientBookStock {
-        //int x = 10/0;
+        int x = 10/0;
 //        try {
 //            Thread.sleep(4000);
 //        } catch (Exception e) {
