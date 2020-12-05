@@ -12,4 +12,9 @@ public class BookController {
     public Integer findPriceById(Integer bid) {
         return bookService.getPriceById(bid);
     }
+    
+    public void buy(Integer wid, Integer bid) {
+        bookService.buyOne(wid, bid);
+    }
+    
 }
