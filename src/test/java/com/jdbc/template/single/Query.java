@@ -28,6 +28,7 @@ public class Query {
         getTotalRowCount();
         queryAll();
         queryBySexAndMoreThenAge("F", 20);
+        getAvgOfAge();
     }
     
     // 單筆查詢 1 - 欄位手動對應
@@ -84,6 +85,15 @@ public class Query {
         List<Emp> emps = jdbcTemplate.query(sql, rm, sex, age);
         System.out.println(emps);
     }
+    
+    // 查詢平均年齡
+    private void getAvgOfAge() {
+        String sql = "select avg(age) from emp";
+        Integer avgOfAge = jdbcTemplate.queryForObject(sql, Integer.class);
+        System.out.println("平均年齡: " + avgOfAge);
+    }
+    
+    
     
     
     @After
