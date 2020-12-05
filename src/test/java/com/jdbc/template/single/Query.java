@@ -93,8 +93,11 @@ public class Query {
         System.out.println("平均年齡: " + avgOfAge);
     }
     
-    
-    
+    // 查詢男女的平均年齡各為多少
+    private void getAvgOfAgeBySex() {
+        // 隨堂練習
+        
+    }
     
     @After
     public void after() {
