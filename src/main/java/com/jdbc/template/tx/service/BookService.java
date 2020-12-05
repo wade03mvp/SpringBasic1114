@@ -1,6 +1,6 @@
-package com.jdbc.tx.service;
+package com.jdbc.template.tx.service;
 
-import com.jdbc.tx.dao.BookDao;
+import com.jdbc.template.tx.dao.BookDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

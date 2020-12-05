@@ -1,6 +1,6 @@
-package com.jdbc.tx.controller;
+package com.jdbc.template.tx.controller;
 
-import com.jdbc.tx.service.BookService;
+import com.jdbc.template.tx.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
