@@ -29,6 +29,12 @@
     </bean>
     
     <!-- 交易模式 tx 的配置 -->
+    <!-- 配置事務管理器 -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
     
+    <!-- 開啟交易的註解@驅動, 針對事務的相關註@解進行掃描與解析 -->
+    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
     
 </beans>
