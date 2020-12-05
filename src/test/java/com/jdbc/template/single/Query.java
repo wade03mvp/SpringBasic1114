@@ -2,6 +2,7 @@ package com.jdbc.template.single;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,6 +26,8 @@ public class Query {
         getById(1);
         getById2(1);
         getTotalRowCount();
+        queryAll();
+        queryBySexAndMoreThenAge("F", 20);
     }
     
     // 單筆查詢 1 - 欄位手動對應
@@ -65,6 +68,23 @@ public class Query {
         Integer count = jdbcTemplate.queryForObject(sql, Integer.class);
         System.out.println("資料總筆數: " + count);
     }
+    
+    // 查詢多筆 1 - 全部查詢
+    private void queryAll() {
+        String sql = "select id, name, age, sex, ct from emp";
+        RowMapper<Emp> rm = new BeanPropertyRowMapper<>(Emp.class);
+        List<Emp> emps = jdbcTemplate.query(sql, rm);
+        System.out.println(emps);
+    }
+    
+    // 查詢多筆 2 - 條件查詢
+    private void queryBySexAndMoreThenAge(String sex, Integer age) {
+        String sql = "select id, name, age, sex, ct from emp where sex = ? and age >= ?";
+        RowMapper<Emp> rm = new BeanPropertyRowMapper<>(Emp.class);
+        List<Emp> emps = jdbcTemplate.query(sql, rm, sex, age);
+        System.out.println(emps);
+    }
+    
     
     @After
     public void after() {
