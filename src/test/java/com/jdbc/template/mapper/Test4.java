@@ -2,6 +2,7 @@ package com.jdbc.template.mapper;
 
 import com.jdbc.template.mapper.dao.InvoiceDao;
 import com.jdbc.template.mapper.entity.Item;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -49,14 +50,24 @@ public class Test4 {
         
         // 3. 每一張發票價值多少?
         System.out.println("3. 每一張發票價值多少");
-        System.out.println(
-                items.stream().collect(groupingBy(item -> item.getInvoice().getId(), 
-                        Collectors.summingInt(item -> item.getAmount() * item.getProduct().getPrice())))
-        );
+        Map<Integer, Integer> map3 = items.stream()
+                                    .collect(groupingBy(item -> item.getInvoice().getId(), 
+                                                Collectors.summingInt(item -> item.getAmount() * item.getProduct().getPrice())));
+        System.out.println(map3);
         
-        // 4. 每一樣商品各賣了多少?
+        // 4. 每一樣商品各賣了多少錢?
+        System.out.println("4. 每一樣商品各賣了多少錢");
+        Map<String, Integer> map4 = items.stream()
+                                    .collect(groupingBy(item -> item.getProduct().getText(), 
+                                                Collectors.summingInt(item -> item.getAmount() * item.getProduct().getPrice())));
+        System.out.println(map4);
         
         // 5. 哪一件商品賣得錢最多?
+        System.out.println(
+                map4.entrySet().stream()
+                        .max(Comparator.comparing(entry -> entry.getValue()))
+                        .get()
+        );
         
         // 6. 哪一張發票價值最高（請練習看看）?
         
