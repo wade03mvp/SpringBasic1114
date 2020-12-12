@@ -18,13 +18,15 @@ public class JPATemplate {
         ctx = new ClassPathXmlApplicationContext("jpa-config.xml");
         sessionFactory = ctx.getBean("sessionFactory", SessionFactory.class);
         session = sessionFactory.getCurrentSession();
+        if(!session.isOpen()) {
+            session = sessionFactory.openSession();
+        }
         trans = session.beginTransaction(); // 取得交易管理物件並開始
     }
     
     @After
     public void after() {
         trans.commit(); // 提交
-        session.close();
         sessionFactory.close();
         ctx.close();
     }
