@@ -6,6 +6,19 @@ import org.junit.Test;
 public class Test1 extends JPATemplate {
     @Test
     public void t1() {
+        //create();
+        update();
+    }
+    
+    private void update() {
+        Customer c1 = (Customer)session.get(Customer.class, 1);
+        System.out.println(c1);
+        c1.setLastName("John");
+        System.out.println(c1);
+    }
+    
+    
+    private void create() {
         Customer c1 = new Customer();
         c1.setLastName("Tom");
         System.out.println(c1);
