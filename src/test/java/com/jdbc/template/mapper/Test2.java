@@ -1,5 +1,6 @@
 package com.jdbc.template.mapper;
 
+import com.jdbc.template.mapper.entity.Invoice;
 import com.jdbc.template.mapper.entity.Item;
 import com.jdbc.template.mapper.entity.ItemProduct;
 import java.sql.ResultSet;
@@ -32,6 +33,13 @@ public class Test2 {
                     ipid);
             item.setProduct(product); // 注入 product
             // 注入 invoice 的步驟
+            Integer invid = rs.getInt("invid"); // 得到 invid (發票的id)
+            String sql_2 = "SELECT * FROM INVOICE WHERE id=?";
+            Invoice invoice = jdbcTemplate.queryForObject(
+                    sql_2, 
+                    new BeanPropertyRowMapper<>(Invoice.class),
+                    invid);
+            item.setInvoice(invoice); // 注入 invoice
             
             return item;
         }
