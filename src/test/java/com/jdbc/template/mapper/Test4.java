@@ -33,7 +33,12 @@ public class Test4 {
                 .collect(groupingBy(item -> item.getInvoice().getId(), Collectors.toList()));
         map1.keySet()
                 .stream()
-                .forEach(id -> System.out.println("發票號碼:" + id + "\n\t項目:" + map1.get(id).stream().map(item -> item.getProduct().getText()).collect(toList())));
+                .forEach(id -> System.out.println("發票號碼:" + id + "\n\t" +
+                                                  "項目:" + map1.get(id)
+                                                          .stream()
+                                                          .map(item -> item.getProduct().getText())
+                                                          .collect(toList()))
+                                                  );
         
         // 2. 每一張發票有幾件商品?
         
