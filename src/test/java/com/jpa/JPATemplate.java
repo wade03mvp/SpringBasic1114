@@ -10,7 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class JPATemplate {
     private ClassPathXmlApplicationContext ctx;
     private SessionFactory sessionFactory; // 連線工廠
-    private Session session; // 連線物件
+    protected Session session; // 連線物件
     private Transaction trans; // 交易物件
     
     @Before
