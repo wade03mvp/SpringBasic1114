@@ -95,6 +95,14 @@
             <artifactId>c3p0</artifactId>
             <version>0.9.5.2</version>
         </dependency>
+        
+        <!-- SimpleFlatMapper 簡單數據庫映射 -->
+        <dependency>
+            <groupId>org.simpleflatmapper</groupId>
+            <artifactId>sfm-springjdbc</artifactId>
+            <version>3.11.7</version>
+        </dependency>
+
     </dependencies>
     
 </project>
