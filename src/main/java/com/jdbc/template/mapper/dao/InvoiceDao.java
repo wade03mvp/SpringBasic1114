@@ -3,6 +3,7 @@ package com.jdbc.template.mapper.dao;
 import com.jdbc.template.mapper.entity.Item;
 import com.jdbc.template.mapper.entity.ItemProduct;
 import java.util.List;
+import java.util.Map;
 import org.simpleflatmapper.jdbc.spring.JdbcTemplateMapperFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
@@ -33,5 +34,13 @@ public class InvoiceDao {
     public List<ItemProduct> queryProducts() {
         return jdbcTemplate.query("SELECT * FROM ITEMPRODUCT", 
                                   new BeanPropertyRowMapper<>(ItemProduct.class));
+    }
+    
+    // 查詢最新庫存 (庫存 - 已賣出的數量)
+    public List<Map<String, Object>> queryProductInventory() {
+        String sql = "SELECT ip.TEXT, \n" +
+                     "       ip.INVENTORY - (SELECT sum(amount) FROM APP.ITEM WHERE ipid=ip.id GROUP BY ipid) as INVENTORY\n" +
+                     "FROM APP.ITEMPRODUCT ip;";
+        return jdbcTemplate.queryForList(sql);
     }
 }
