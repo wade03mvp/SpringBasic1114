@@ -3,16 +3,22 @@ package com.jdbc.template.mapper;
 import com.jdbc.template.mapper.entity.Item;
 import java.util.List;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.simpleflatmapper.jdbc.spring.JdbcTemplateMapperFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:jdbc-config.xml"})
 public class Test3 {
-
-    ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("jdbc-config.xml");
-    JdbcTemplate jdbcTemplate = ctx.getBean("jdbcTemplate", JdbcTemplate.class);
+    
+    @Autowired
+    JdbcTemplate jdbcTemplate;
 
     @Test
     public void t1() {
