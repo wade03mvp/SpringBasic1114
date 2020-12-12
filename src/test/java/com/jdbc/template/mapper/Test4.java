@@ -70,6 +70,13 @@ public class Test4 {
         );
         
         // 6. 哪一張發票價值最高（請練習看看）?
+        System.out.println(
+                map3.entrySet().stream()
+                        .max(Comparator.comparing(entry -> entry.getValue()))
+                        .get()                        
+        );
+        
+        // 7. 每件商品的剩餘庫存
         
 
     }
