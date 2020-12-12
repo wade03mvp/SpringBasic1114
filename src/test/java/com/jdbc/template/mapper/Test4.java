@@ -87,8 +87,10 @@ public class Test4 {
                 products.stream()
                     .collect(groupingBy(p -> p.getText(), Collectors.summingInt(p -> { 
                         Integer inventory = p.getInventory();
-                        Integer sold = items.stream().filter(item -> item.getProduct().getText().equals(p.getText())) 
-                                .mapToInt(item -> item.getAmount()).sum();
+                        Integer sold = items.stream()
+                                .filter(item -> item.getProduct().getId() == p.getId()) 
+                                .mapToInt(item -> item.getAmount())
+                                .sum();
                                 
                         return  inventory - sold;
                     })))
