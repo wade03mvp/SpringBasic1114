@@ -1,9 +1,11 @@
 package com.jdbc.template.mapper.dao;
 
 import com.jdbc.template.mapper.entity.Item;
+import com.jdbc.template.mapper.entity.ItemProduct;
 import java.util.List;
 import org.simpleflatmapper.jdbc.spring.JdbcTemplateMapperFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.stereotype.Repository;
@@ -26,5 +28,10 @@ public class InvoiceDao {
                 .newResultSetExtractor(Item.class);
         List<Item> items = jdbcTemplate.query(sql, mapper);
         return items;
+    }
+    
+    public List<ItemProduct> queryProducts() {
+        return jdbcTemplate.query("SELECT * FROM ITEMPRODUCT", 
+                                  new BeanPropertyRowMapper<>(ItemProduct.class));
     }
 }
