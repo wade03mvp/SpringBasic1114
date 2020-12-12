@@ -39,8 +39,8 @@ public class InvoiceDao {
     // 查詢最新庫存 (庫存 - 已賣出的數量)
     public List<Map<String, Object>> queryProductInventory() {
         String sql = "SELECT ip.TEXT, \n" +
-                     "       ip.INVENTORY - (SELECT sum(amount) FROM APP.ITEM WHERE ipid=ip.id GROUP BY ipid) as INVENTORY\n" +
-                     "FROM APP.ITEMPRODUCT ip;";
+                     "       ip.INVENTORY - (SELECT sum(amount) FROM ITEM WHERE ipid=ip.id GROUP BY ipid) as INVENTORY\n" +
+                     "FROM ITEMPRODUCT ip";
         return jdbcTemplate.queryForList(sql);
     }
 }

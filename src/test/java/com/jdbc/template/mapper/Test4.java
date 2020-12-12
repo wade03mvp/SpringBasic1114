@@ -95,5 +95,9 @@ public class Test4 {
                         return  inventory - sold;
                     })))
         );
+        
+        // 8. 每件商品的剩餘庫存(SQL版)
+        System.out.println("8. 每件商品的剩餘庫存(SQL版)");
+        System.out.println(invoiceDao.queryProductInventory());
     }
 }
