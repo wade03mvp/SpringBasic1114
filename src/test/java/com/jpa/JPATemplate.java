@@ -3,6 +3,7 @@ package com.jpa;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.junit.After;
 import org.junit.Before;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -20,7 +21,8 @@ public class JPATemplate {
         trans = session.beginTransaction(); // 取得交易管理物件並開始
     }
     
-    public void end() {
+    @After
+    public void after() {
         trans.commit(); // 提交
         session.close();
         sessionFactory.close();
