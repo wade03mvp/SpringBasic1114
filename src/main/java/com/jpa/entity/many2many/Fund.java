@@ -31,6 +31,13 @@ public class Fund {
     @ManyToMany(cascade = CascadeType.PERSIST)
     private Set<Stock> stocks = new LinkedHashSet<>();
 
+    public Fund() {
+    }
+
+    public Fund(String name) {
+        this.name = name;
+    }
+    
     public Integer getId() {
         return id;
     }

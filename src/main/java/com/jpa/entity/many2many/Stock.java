@@ -22,6 +22,13 @@ public class Stock {
     @ManyToMany(mappedBy = "stocks")
     private Set<Fund> funds = new LinkedHashSet<>();
 
+    public Stock() {
+    }
+
+    public Stock(String name) {
+        this.name = name;
+    }
+    
     public Integer getId() {
         return id;
     }
