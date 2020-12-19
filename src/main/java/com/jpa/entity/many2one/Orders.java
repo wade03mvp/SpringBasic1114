@@ -16,7 +16,8 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     
-    @Column(name = "name", length = 50, nullable = false)
+    //@Column(name = "name", length = 50, nullable = true)
+    @Column(name = "name", length = 50)
     private String name;
     
     @ManyToOne
