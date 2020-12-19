@@ -77,7 +77,5 @@ public class Employee {
     public void setClubs(Set<Club> clubs) {
         this.clubs = clubs;
     }
-    
-    
-    
+
 }
