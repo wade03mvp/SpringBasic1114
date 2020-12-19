@@ -17,7 +17,7 @@ public class Read extends JPATemplate {
         List<Dept> depts = session.createQuery("from Dept d").list();
         depts.stream().forEach(dept -> {
             // 印出部門名稱
-            System.out.println(dept.getName() + " --> ");
+            System.out.print(dept.getName() + " --> ");
             // 印出該部門裡所有員工
             dept.getEmps().stream().forEach(emp -> System.out.print(emp.getName() + " "));
             System.out.println();
