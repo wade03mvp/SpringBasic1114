@@ -18,7 +18,7 @@ public class Boss {
     @Column
     private String name;
     
-    @OneToOne(mappedBy = "company")
+    @OneToOne(mappedBy = "boss")
     private Company company;
 
     public Integer getId() {
