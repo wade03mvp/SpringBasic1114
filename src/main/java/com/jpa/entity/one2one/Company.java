@@ -1,9 +1,11 @@
 package com.jpa.entity.one2one;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -17,7 +19,9 @@ public class Company {
     @Column
     private String name;
     
-    @OneToOne
+    // 建立 Company 時 Boss 也一併被建立
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "boss_id")
     private Boss boss;
 
     public Integer getId() {
