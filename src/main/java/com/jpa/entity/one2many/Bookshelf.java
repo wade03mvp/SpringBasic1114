@@ -2,6 +2,7 @@ package com.jpa.entity.one2many;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -20,7 +21,7 @@ public class Bookshelf {
     @Column
     private String name;
     
-    @OneToMany
+    @OneToMany(cascade = CascadeType.REMOVE)
     @JoinColumn(name = "bookshelf_id", referencedColumnName = "id")
     private List<Book> books = new ArrayList<>();
 
