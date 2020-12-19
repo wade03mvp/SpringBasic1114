@@ -1,6 +1,6 @@
 package com.jpa;
 
-import com.jpa.entity.Customer;
+import com.jpa.entity.many2one.Customer;
 import org.junit.Test;
 
 public class Test1 extends JPATemplate {

@@ -1,4 +1,4 @@
-package com.jpa.entity;
+package com.jpa.entity.many2one;
 
 import java.io.Serializable;
 import javax.persistence.Column;
