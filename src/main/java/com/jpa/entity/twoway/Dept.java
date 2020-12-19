@@ -20,7 +20,9 @@ public class Dept {
     @Column
     private String name;
     
-    @OneToMany
+    // Dept 加入員工是根據 Emp 的 dept 屬性的資料變動
+    // 所以 Dept 不用維護對於 emp 的關聯設定
+    @OneToMany(mappedBy = "dept")
     private List<Emp> emps = new ArrayList<>();
 
     public Integer getId() {
