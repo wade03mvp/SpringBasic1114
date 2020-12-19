@@ -1,5 +1,6 @@
-package com.jpa;
+package com.jpa.single;
 
+import com.jpa.JPATemplate;
 import com.jpa.entity.many2one.Customer;
 import org.junit.Test;
 
