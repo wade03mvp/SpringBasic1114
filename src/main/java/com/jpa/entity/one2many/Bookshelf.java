@@ -21,7 +21,7 @@ public class Bookshelf {
     private String name;
     
     @OneToMany
-    @JoinColumn(name = "book_id", referencedColumnName = "id")
+    @JoinColumn(name = "bookshelf_id", referencedColumnName = "id")
     private List<Book> books = new ArrayList<>();
 
     public Integer getId() {
